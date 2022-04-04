@@ -37,11 +37,13 @@ nav {
 /* #region main */
 main {
   background-color: aquamarine;
-  height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  width: 500px;
+  width: 400px;
   margin: auto;
 }
 
