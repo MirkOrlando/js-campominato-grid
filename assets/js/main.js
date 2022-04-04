@@ -8,10 +8,16 @@ con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 */
 
+/* create the difficulty levels  */
+
 /* create the grid */
-
 createGrid(".row", 100, "div", "col");
+/* create numbers in each cell */
+generateCellsNumbers(100, ".col");
+/* create "on click" effect */
+selectElementByClick(".col", "active");
 
+/* functions */
 /**
  * Grid generator
  * @param {string} selector a css selector to define the container of the grid
@@ -41,4 +47,33 @@ function createGrid(selector, limit, tagName, className) {
  */
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function selectElementByClick(selector, className) {
+  const cols = document.querySelectorAll(selector);
+
+  for (let i = 0; i < cols.length; i++) {
+    const col = cols[i];
+    col.addEventListener("click", function () {
+      this.classList.add(className);
+    });
+  }
+}
+
+function generateCellsNumbers(limit, selector) {
+  const randomNumbers = [];
+  while (randomNumbers.length !== limit) {
+    const randomnumber = getRndInteger(1, limit);
+    if (!randomNumbers.includes(randomnumber)) {
+      randomNumbers.push(randomnumber);
+    }
+  }
+  console.log(randomNumbers.length);
+  const cols = document.querySelectorAll(selector);
+  for (let i = 0; i < limit; i++) {
+    const col = cols[i];
+    const spanElement = document.createElement("span");
+    spanElement.append(randomNumbers[i]);
+    col.append(spanElement);
+  }
 }

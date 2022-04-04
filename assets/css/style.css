@@ -22,4 +22,12 @@ body {
   width: calc(100% / 10);
   aspect-ratio: 1 / 1;
   border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active {
+  background-color: lightskyblue;
+  color: white;
 }
