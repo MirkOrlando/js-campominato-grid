@@ -8,12 +8,24 @@ con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 */
 
-/* create the difficulty levels  */
-
+/* create the difficulty levels */
+const difficulty = parseInt(prompt("seleziona la difficoltà (1, 2, oppure 3)"));
+const containerElement = document.querySelector(".container");
+let colsNumber = 0;
+if (difficulty === 1) {
+  containerElement.classList.add("easy");
+  colsNumber = 100;
+} else if (difficulty === 2) {
+  containerElement.classList.add("medium");
+  colsNumber = 81;
+} else if (difficulty === 3) {
+  containerElement.classList.add("hard");
+  colsNumber = 49;
+}
 /* create the grid */
-createGrid(".row", 100, "div", "col");
+createGrid(".row", colsNumber, "div", "col");
 /* create numbers in each cell */
-generateCellsNumbers(100, ".col");
+generateCellsNumbers(colsNumber, ".col");
 /* create "on click" effect */
 selectElementByClick(".col", "active");
 
