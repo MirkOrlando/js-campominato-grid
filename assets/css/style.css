@@ -37,12 +37,12 @@ nav {
 /* #region main */
 main {
   background-color: aquamarine;
+  height: calc(100vh - 120px);
 }
 
 .container {
   width: 500px;
   margin: auto;
-  padding: 2rem 0;
 }
 
 .row {
