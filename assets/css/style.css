@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 img {
   max-width: 100%;
 }
@@ -31,6 +35,14 @@ nav {
 
 .logo {
   width: 50px;
+}
+
+.btn {
+  width: 75px;
+}
+
+.selector {
+  width: 150px;
 }
 /* #endregion header */
 

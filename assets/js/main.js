@@ -30,7 +30,7 @@ formElement.addEventListener("submit", function (event) {
   /* create the grid */
   createGrid(".row", colsNumber, "div", "col");
   /* create numbers in each cell */
-  generateCellsNumbers(colsNumber, ".col");
+  generateCellsNumbers(colsNumber, ".col", "span");
   /* create "on click" effect */
   selectElementByClick(".col", "active");
 });
@@ -77,7 +77,7 @@ function selectElementByClick(selector, className) {
   }
 }
 
-function generateCellsNumbers(limit, selector) {
+function generateCellsNumbers(limit, selector, tagName) {
   const randomNumbers = [];
   while (randomNumbers.length !== limit) {
     const randomnumber = getRndInteger(1, limit);
@@ -89,7 +89,7 @@ function generateCellsNumbers(limit, selector) {
   const cols = document.querySelectorAll(selector);
   for (let i = 0; i < limit; i++) {
     const col = cols[i];
-    const spanElement = document.createElement("span");
+    const spanElement = document.createElement(tagName);
     spanElement.append(randomNumbers[i]);
     col.append(spanElement);
   }
