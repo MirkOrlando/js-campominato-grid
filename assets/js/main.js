@@ -8,27 +8,32 @@ con difficoltà 3 => tra 1 e 49
 Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 */
 
+const formElement = document.querySelector("form");
+const submitElement = document.querySelector("form button");
 /* create the difficulty levels */
-const difficulty = parseInt(prompt("seleziona la difficoltà (1, 2, oppure 3)"));
-const containerElement = document.querySelector(".container");
-let colsNumber = 0;
-if (difficulty === 1) {
-  containerElement.classList.add("easy");
-  colsNumber = 100;
-} else if (difficulty === 2) {
-  containerElement.classList.add("medium");
-  colsNumber = 81;
-} else if (difficulty === 3) {
-  containerElement.classList.add("hard");
-  colsNumber = 49;
-}
-/* create the grid */
-createGrid(".row", colsNumber, "div", "col");
-/* create numbers in each cell */
-generateCellsNumbers(colsNumber, ".col");
-/* create "on click" effect */
-selectElementByClick(".col", "active");
-
+formElement.addEventListener("submit", function (event) {
+  event.preventDefault();
+  submitElement.setAttribute("disabled", "disabled");
+  const difficulty = parseInt(document.getElementById("difficulty").value);
+  const containerElement = document.querySelector(".container");
+  let colsNumber = 0;
+  if (difficulty === 1) {
+    containerElement.classList.add("easy");
+    colsNumber = 100;
+  } else if (difficulty === 2) {
+    containerElement.classList.add("medium");
+    colsNumber = 81;
+  } else if (difficulty === 3) {
+    containerElement.classList.add("hard");
+    colsNumber = 49;
+  }
+  /* create the grid */
+  createGrid(".row", colsNumber, "div", "col");
+  /* create numbers in each cell */
+  generateCellsNumbers(colsNumber, ".col");
+  /* create "on click" effect */
+  selectElementByClick(".col", "active");
+});
 /* functions */
 /**
  * Grid generator
