@@ -13,7 +13,6 @@ const submitElement = document.querySelector("form button");
 /* create the difficulty levels */
 formElement.addEventListener("submit", function (event) {
   event.preventDefault();
-  submitElement.setAttribute("disabled", "disabled");
   const difficulty = parseInt(document.getElementById("difficulty").value);
   const containerElement = document.querySelector(".container");
   let colsNumber = 0;
@@ -44,6 +43,7 @@ formElement.addEventListener("submit", function (event) {
  */
 function createGrid(selector, limit, tagName, className) {
   const rowElement = document.querySelector(selector);
+  rowElement.innerHTML = "";
 
   for (let i = 0; i < limit; i++) {
     const colElement = document.createElement(tagName);
