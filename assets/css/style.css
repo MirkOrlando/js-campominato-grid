@@ -4,17 +4,45 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: aquamarine;
+img {
+  max-width: 100%;
 }
 
-.container {
-  width: 1000px;
-  margin: 2rem auto;
+.container_lg {
+  width: 1200px;
+  margin: auto;
 }
 
 .invisible {
   visibility: hidden;
+}
+
+/* #region header */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container_logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+}
+/* #endregion header */
+
+/* #region main */
+main {
+  background-color: aquamarine;
+}
+
+.container {
+  width: 500px;
+  margin: auto;
+  padding: 2rem 0;
 }
 
 .row {
@@ -46,3 +74,11 @@ body {
   background-color: lightskyblue;
   color: white;
 }
+
+/* #endregion main */
+
+/* #region footer */
+.credits {
+  padding: 1.5rem 0.25rem;
+}
+/* #endregion footer */
